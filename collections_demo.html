@@ -13,10 +13,32 @@
       const teneoProps = {
         'teneoEngineUrl': 'https://magicalaye-ayes-47712c.bots.teneo.ai/afs_customer_servi_3c4d3fz6j79apa9wbnv6tzstkh/',
       }
-      window.TeneoWebChat.initialize(element,teneoProps);
+      //window.TeneoWebChat.initialize(element,teneoProps);
     }
   }
 </script>
+<script type="text/javascript">
+  window.TENEOCTX || (TENEOCTX = {});
+  TENEOCTX = {
+    init: {
+      trustedDomain: "", // something like http://localhost:8080 // "" = receive and post messages to all domains
+      allowScripts: true // false = if you want to disable potential eval
+    },
+    ctx: {
+      eventSource: "leopard-embed",
+      pageTitle: document.title,
+      pageUrl: window.location.href,
+      pageTopic: "Help",
+      message: "This was sent from the customer's web site"
+    }
+  };
+</script>  
 <!-- Teneo Web Chat end -->
 <img src="https://api.twilio.com/2010-04-01/Accounts/ACc64e3773eb24a1a402e1a65948f4ded4/Messages/MM025f5a32584140e264e5fe04ee0d6c3d/Media/ME103e54039e21df199aba84caea9f437d/"/>
+
+
+
+<div id="leopardChatWindow"></div>
+
+<script src="https://afs-customer-services.herokuapp.com/leopard/static/embed-leopard.js"></script>
 </html>
