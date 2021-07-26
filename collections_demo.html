@@ -1,0 +1,22 @@
+<html>
+
+<!-- Teneo Web Chat start -->
+<div id="teneo-web-chat"></div>
+<script src="teneo-web-chat.js"></script>
+<script>
+  window.onload = function () {
+    if (
+      window.TeneoWebChat &&
+        typeof window.TeneoWebChat.initialize === 'function'
+    ) {
+      var element = document.getElementById('teneo-web-chat');
+      const teneoProps = {
+        'teneoEngineUrl': 'https://magicalaye-ayes-47712c.bots.teneo.ai/afs_customer_servi_3c4d3fz6j79apa9wbnv6tzstkh/',
+      }
+      window.TeneoWebChat.initialize(element,teneoProps);
+    }
+  }
+</script>
+<!-- Teneo Web Chat end -->
+<img src="https://api.twilio.com/2010-04-01/Accounts/ACc64e3773eb24a1a402e1a65948f4ded4/Messages/MM025f5a32584140e264e5fe04ee0d6c3d/Media/ME103e54039e21df199aba84caea9f437d/"/>
+</html>
