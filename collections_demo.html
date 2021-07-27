@@ -27,8 +27,48 @@
     }
   }
 
-  var element = document.getElementById('teneo-web-chat');
-  element.maximize();
+  function find_node( path, context )
+{
+     var found = document.evaluate( path, context, null,
+                                    XPathResult.ANY_UNORDERED_NODE_TYPE, null );
+     return ( found && found.singleNodeValue ) ? found.singleNodeValue : null;
+}
+
+const target   = document.getElementsByTagName('body')[0];
+const config   = { attributes: false, childList: true, subtree: true };
+const sentinel = function(mutants, observer)
+{
+     for( const mutant of mutants )
+     {
+         var found = false;
+         if (mutant.type != 'childList')
+             continue;
+
+         var added = mutant.addedNodes;
+         for (let i = 0; i < added.length; i++)
+         {
+             if( added[i].id == 'twc-launchbutton' )
+                 found = added[i];
+            else
+                 found = find_node( "//*[@id='twc-launchbutton']", added[i] );
+
+             if( found )
+             {
+                 observer.disconnect();
+                 found.click();
+                 break;
+             }
+        }
+     }
+};
+
+if( target )
+{
+     const O = new MutationObserver( sentinel );
+     if( O )
+         O.observe( target, config);
+}
+
  
   window.TENEOCTX || (TENEOCTX = {});
   TENEOCTX = {
