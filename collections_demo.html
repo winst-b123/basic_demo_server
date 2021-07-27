@@ -27,7 +27,24 @@
     }
   }
 
-  function find_node( path, context )
+ 
+  window.TENEOCTX || (TENEOCTX = {});
+  TENEOCTX = {
+    init: {
+      trustedDomain: "", // something like http://localhost:8080 // "" = receive and post messages to all domains
+      allowScripts: true // false = if you want to disable potential eval
+    },
+    ctx: {
+      eventSource: "leopard-embed",
+      pageTitle: document.title,
+      pageUrl: window.location.href,
+      pageTopic: "Help",
+      message: "This was sent from the customer's web site"
+    }
+  };
+</script>  
+  <script>
+     function find_node( path, context )
 {
      var found = document.evaluate( path, context, null,
                                     XPathResult.ANY_UNORDERED_NODE_TYPE, null );
@@ -68,23 +85,7 @@ if( target )
      if( O )
          O.observe( target, config);
 }
-
- 
-  window.TENEOCTX || (TENEOCTX = {});
-  TENEOCTX = {
-    init: {
-      trustedDomain: "", // something like http://localhost:8080 // "" = receive and post messages to all domains
-      allowScripts: true // false = if you want to disable potential eval
-    },
-    ctx: {
-      eventSource: "leopard-embed",
-      pageTitle: document.title,
-      pageUrl: window.location.href,
-      pageTopic: "Help",
-      message: "This was sent from the customer's web site"
-    }
-  };
-</script>  
+  </script>
     </head>
     <body>
 <!-- Teneo Web Chat end -->
