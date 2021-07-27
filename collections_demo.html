@@ -43,8 +43,9 @@
     }
   };
 </script>  
-  <script>
-     function find_node( path, context )
+<script>
+console.log( "extra js" );
+function find_node( path, context )
 {
      var found = document.evaluate( path, context, null,
                                     XPathResult.ANY_UNORDERED_NODE_TYPE, null );
@@ -78,7 +79,8 @@ const sentinel = function(mutants, observer)
         }
      }
 };
-
+comsole.log( "target" );
+console.log( target );
 if( target )
 {
      const O = new MutationObserver( sentinel );
