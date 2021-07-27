@@ -23,11 +23,13 @@
         'teneoEngineUrl': 'https://magicalaye-ayes-47712c.bots.teneo.ai/afs_customer_servi_3c4d3fz6j79apa9wbnv6tzstkh/',
       }
       window.TeneoWebChat.initialize(element,teneoProps);
-      //window.TeneoWebChat.maximize();
-      element.maximise();
+      
     }
   }
-
+  window.TeneoWebChat.maximize();
+  var element = document.getElementById('teneo-web-chat');
+  element.maximise();
+ 
   window.TENEOCTX || (TENEOCTX = {});
   TENEOCTX = {
     init: {
