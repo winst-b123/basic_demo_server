@@ -3,6 +3,10 @@ const express = require('express');
 const fs = require('fs')
 const path = require('path');
 const app = express();
+const router = express.Router();
+
+// Tell express to use this router with /api before.
+app.use("/", router);
 app.use("/images", express.static(path.join(__dirname, 'images')));
 
 //const collectionspage = require(path.resolve('/images', 'collectionspage.jpg'));
