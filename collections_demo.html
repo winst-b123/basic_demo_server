@@ -37,30 +37,24 @@
   };
 </script>  
 <script>
- let imageURL = "https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit";
-
-  downloadedImg = new Image;
-  downloadedImg.crossOrigin = "Anonymous";
-  downloadedImg.addEventListener("load", imageReceived, false);
-  downloadedImg.src = imageURL;
  
- function imageReceived() {
-  let canvas = document.createElement("canvas");
-  let context = canvas.getContext("2d");
+ var img = new Image(),
+    canvas = document.createElement("canvas"),
+    ctx = canvas.getContext("2d"),
+    src = "https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit";
 
-  canvas.width = downloadedImg.width;
-  canvas.height = downloadedImg.height;
-
-  context.drawImage(downloadedImg, 0, 0);
-  imageBox.appendChild(canvas);
-
-  try {
-    localStorage.setItem("saved-image-example", canvas.toDataURL("image/png"));
-  }
-  catch(err) {
-    console.log("Error: " + err);
-  }
+img.onload = function() {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+    console.log(canvas.toDataUrl());
 }
+// check if //domain.com or http://domain.com is a different origin
+if (/^([\w]+\:)?\/\//.test(src) && src.indexOf(location.host) === -1) {
+  img.crossOrigin = "anonymous"; // or "use-credentials"
+}
+img.src = src;
+ 
  
 function find_node( path, context )
 {
