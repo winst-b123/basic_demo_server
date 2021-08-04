@@ -1,7 +1,7 @@
 const http = require('http')
 const fs = require('fs')
 const path = require('path');
-//const twilio_voice = require(path.resolve('/app', 'teneo-web-chat.js'));
+const collectionspage = require(path.resolve('/images', 'collectionspage.jpg'));
 //const twilio_voice_instance = new twilio_voice();
 
 const server = http.createServer((req, res) => {
