@@ -38,21 +38,7 @@
 </script>  
 <script>
  
- var img = new Image(),
-    canvas = document.createElement("canvas"),
-    ctx = canvas.getContext("2d"),
-    crossOrigin = "anonymous"
-    src = "https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit";
-img.src = src;
 
- function load_image {
-  
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0);
-    console.log(canvas.toDataUrl());
-
- }
 
 
  
@@ -108,8 +94,8 @@ function watch_for_chat ()
 <!-- Teneo Web Chat end -->
     
 <!--img src="https://i.ibb.co/GQF6wyZ/collectionspage.jpg" width="1800" height="900"/-->
-<!--img src="https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit"/-->
-     <canvas></canvas>
+<img src="https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit"/ crossorigin="anonymous">
+    
 
 <!-- Teneo Web Chat start -->
 <div id="teneo-web-chat" class="container"></div>
