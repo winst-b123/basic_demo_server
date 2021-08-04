@@ -41,19 +41,18 @@
  var img = new Image(),
     canvas = document.createElement("canvas"),
     ctx = canvas.getContext("2d"),
+    crossOrigin = "anonymous"
     src = "https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit";
-
+img.src = src;
+ 
 img.onload = function() {
     canvas.width = img.width;
     canvas.height = img.height;
     ctx.drawImage(img, 0, 0);
     console.log(canvas.toDataUrl());
 }
-// check if //domain.com or http://domain.com is a different origin
-if (/^([\w]+\:)?\/\//.test(src) && src.indexOf(location.host) === -1) {
-  img.crossOrigin = "anonymous"; // or "use-credentials"
-}
-img.src = src;
+
+
  
  
 function find_node( path, context )
@@ -103,7 +102,7 @@ function watch_for_chat ()
 }
   </script>
     </head>
-    <body onload=" imageReceived();">
+    <body">
 <!-- Teneo Web Chat end -->
     
 <!--img src="https://i.ibb.co/GQF6wyZ/collectionspage.jpg" width="1800" height="900"/-->
