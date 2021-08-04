@@ -8,7 +8,7 @@
         "SMS",
         "Teneo"
     ],
-    "repository": "https://github.com/artificialsolutions/tie-api-example-twilio-whatsapp",
+    "repository": "https://github.com/annejenkins-cgi/basic_demo_server/",
     "env": {    
         "TENEO_ENGINE_URL": {
             "description": "Please input your Teneo Engine URL. https://some.engine/instance/",
