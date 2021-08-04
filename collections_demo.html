@@ -37,6 +37,31 @@
   };
 </script>  
 <script>
+ let imageURL = "https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit";
+
+  downloadedImg = new Image;
+  downloadedImg.crossOrigin = "Anonymous";
+  downloadedImg.addEventListener("load", imageReceived, false);
+  downloadedImg.src = imageURL;
+ 
+ function imageReceived() {
+  let canvas = document.createElement("canvas");
+  let context = canvas.getContext("2d");
+
+  canvas.width = downloadedImg.width;
+  canvas.height = downloadedImg.height;
+
+  context.drawImage(downloadedImg, 0, 0);
+  imageBox.appendChild(canvas);
+
+  try {
+    localStorage.setItem("saved-image-example", canvas.toDataURL("image/png"));
+  }
+  catch(err) {
+    console.log("Error: " + err);
+  }
+}
+ 
 function find_node( path, context )
 {
      var found = document.evaluate( path, context, null,
@@ -84,11 +109,12 @@ function watch_for_chat ()
 }
   </script>
     </head>
-    <body>
+    <body onload=" imageReceived();">
 <!-- Teneo Web Chat end -->
     
 <!--img src="https://i.ibb.co/GQF6wyZ/collectionspage.jpg" width="1800" height="900"/-->
-<img src="https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit"/>
+<!--img src="https://drive.google.com/file/d/1Haaisgl_aeJT8MJtnnSM-0Rx1L2qDHkH/edit"/-->
+     <canvas></canvas>
 
 <!-- Teneo Web Chat start -->
 <div id="teneo-web-chat" class="container"></div>
