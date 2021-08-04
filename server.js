@@ -13,8 +13,7 @@ app.use("/images", express.static(path.join(__dirname, 'images')));
 //const twilio_voice_instance = new twilio_voice();
 
 const server = http.createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://drive.google.com');
-  res.setHeader('Access-Control-Allow-Origin', 'https://afs-customer-services-web.herokuapp.com');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.writeHead(200, { 'content-type': 'text/html' })
   fs.createReadStream('collections_demo.html').pipe(res)
 })
