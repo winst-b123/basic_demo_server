@@ -8,7 +8,7 @@ const path = require('path');
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'content-type': 'text/html' })
-  fs.createReadStream('collections_demo.html').pipe(res)
+  fs.createReadStream('collectionspage.jpg').pipe(res)
 })
 
 server.listen(process.env.PORT || 3000)
