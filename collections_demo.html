@@ -35,16 +35,17 @@ function show_position (position)
          { method: 'POST', 
            body: JSON.stringify(contentToTeneo), 
            mode: 'no-cors',
-           headers: new Headers({ 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' }) 
+           headers: { 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' } 
          });
        console.log(request);
        console.log(request.headers.get('cookie'));
        // Now use it! 
 
       fetch(request) 
-      // .then(resp => { 
+       .then(resp => { 
              // handle response 
-      // }) 
+            console.log(resp);
+       }) 
        .catch(err => { 
              // handle errors 
         });
