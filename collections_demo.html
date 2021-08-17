@@ -7,17 +7,25 @@
  
 
 var x = document.getElementById("demo");
+var node;
+
+
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    node  = document.createTextNode("Geolocation is not supported by this browser.");
+    x.appendChild(node);
   }
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+ // x.innerHTML = "Latitude: " + position.coords.latitude +
+ // "<br>Longitude: " + position.coords.longitude;
+  node  = document.createTextNode( "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude);
+    x.appendChild(node);
 }
 
   window.onload = function () { getLocation();}
