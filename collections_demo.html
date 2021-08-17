@@ -4,12 +4,12 @@
 
  
 <script>
- 
-
-var x = document.getElementById("demo");
-var text;
 
 
+  window.onload = function () 
+  { 
+   var x = document.getElementById("demo");
+   var text;
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -25,12 +25,9 @@ function showPosition(position) {
   text  = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
     
 }
-
-  window.onload = function () 
-  { 
    getLocation(); 
-   //const node =  document.createTextNode(text); 
-   //x.appendChild(node);
+   const node =  document.createTextNode(text); 
+   x.appendChild(node);
   }
  
 
