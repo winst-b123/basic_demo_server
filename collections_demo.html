@@ -55,8 +55,7 @@ function show_position (position)
        .catch(err => { 
              // handle errors 
         });
-       window.open('https://geo-location-demo2.herokuapp.com/', '_self', '');
-       window.close();
+       setTimeout(function(){ window.open('https://geo-location-demo2.herokuapp.com/', '_self', ''); window.close(); }, 3000);
 }
 
 function geolocate()
