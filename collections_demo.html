@@ -5,36 +5,29 @@
  
 <script>
 
+function show_position (position)
+{
+    console.log(position);
+    var position_text = 'Lat: ' + position.coords.latitude;
+    console.log(position_text);
+    var target = document.getElementsByTagName('body')[0];
+    target.appendChild(document.createTextNode(position_text));
+}
 
+function geolocate()
+{
+    if( navigator.geolocation )
+    {
+        navigator.geolocation.getCurrentPosition( show_position );
+    }
+    else
+    {
+        position_text = "Positioning not supported";
+    }
+}
   window.onload = function () 
   { 
-   var x = document.getElementById("demo");
-   let text = 'not set';
-   let display = function (position) 
-   {
-     // x.innerHTML = "Latitude: " + position.coords.latitude +
-     // "<br>Longitude: " + position.coords.longitude;
-      text  = "Latitude = " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
-      console.log(text);
-    };
-   let getter = function () 
-   {
-     if (navigator.geolocation) 
-     {
-       text = 'fetching position';
-       navigator.geolocation.getCurrentPosition(display);
-     }
-     else 
-     {
-       text = "Geolocation is not supported by this browser.";
-     }
-   };
-   
-   console.log(text);
-   getter(); 
-   console.log(text);
-   const node =  document.createTextNode(text); 
-   x.appendChild(node);
+   geolocate();
   }
  
 
