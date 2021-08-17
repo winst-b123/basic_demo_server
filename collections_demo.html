@@ -30,7 +30,7 @@ function show_position (position)
     parameters["longitude"] = position.coords.longitude; 
     parameters["channel"] = 'geoloc';
     parameters["session"] = sessionId;
-      var contentToTeneo = {'text': 'coordinates', "parameters": JSON.stringify(parameters), 'channel':'geoloc'};
+      var contentToTeneo = {'text': 'coordinates', "parameters": parameters, 'channel':'geoloc'};
        console.log("Content to Teneo: " + JSON.stringify(contentToTeneo));
       var request = new Request('https://afs-customer-services-sms.herokuapp.com/', 
          { method: 'POST', 
