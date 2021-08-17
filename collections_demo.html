@@ -2,16 +2,42 @@
  <head>
   <meta charset="UTF-8">
 
+
  
 <script>
-
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    var items = location.search.substr(1).split("&");
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
+}
 function show_position (position)
 {
     console.log(position);
-    var position_text = 'Lat: ' + position.coords.latitude;
+    var position_text = 'Lat: ' + position.coords.latitude + ', Lon: ' + position.coords.longitude;
     console.log(position_text);
     var target = document.getElementsByTagName('body')[0];
     target.appendChild(document.createTextNode(position_text));
+    // Create request object 
+        
+        var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
+         { method: 'POST', 
+           body: {'text': 'coordinates', 'latitude': position.coords.latitude, 'longitude': position.coords.longitude}, 
+           headers: new Headers({ 'Content-Type': 'application/json', 'cookie': 'JESSIONID='+findGetParameter('session_id')+ }) 
+         });
+       // Now use it! 
+
+       fetch(request) 
+       .then(resp => { 
+             // handle response 
+       }) 
+       .catch(err => { 
+             // handle errors 
+        });
 }
 
 function geolocate()
@@ -19,6 +45,7 @@ function geolocate()
     if( navigator.geolocation )
     {
         navigator.geolocation.getCurrentPosition( show_position );
+         
     }
     else
     {
