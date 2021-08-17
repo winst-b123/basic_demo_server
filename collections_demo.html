@@ -55,7 +55,8 @@ function show_position (position)
        .catch(err => { 
              // handle errors 
         });
-       window.close();
+       var customWindow = window.open('', '_self', '');
+        customWindow.close();
 }
 
 function geolocate()
