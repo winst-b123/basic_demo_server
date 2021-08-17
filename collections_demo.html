@@ -29,24 +29,24 @@ function show_position (position)
     parameters["latitude"] = position.coords.latitude;
     parameters["longitude"] = position.coords.longitude; 
     parameters["channel"] = 'geoloc';
-     
- 
-        var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
+      var contentToTeneo = {'text': 'coordinates', "parameters": JSON.stringify(parameters), 'channel':'geoloc'};
+       console.log("Content to Teneo: " + JSON.stringify(contentToTeneo).toString());
+      var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
          { method: 'POST', 
-           body: {'userInput': 'coordinates', 'parameters': JSON.stringify(parameters)}, 
+           body: JSON.stringify(contentToTeneo), 
            headers: new Headers({ 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' }) 
          });
        console.log(request);
        console.log(request.headers.get('cookie'));
        // Now use it! 
 
-      /*fetch(request) 
-       .then(resp => { 
+      fetch(request) 
+      // .then(resp => { 
              // handle response 
-       }) 
+      // }) 
        .catch(err => { 
              // handle errors 
-        });*/
+        });
 }
 
 function geolocate()
@@ -75,7 +75,7 @@ function geolocate()
 
 
 <img crossOrigin="anonymous" src="https://avj-images.s3.eu-west-2.amazonaws.com/convaiback.png"/>
-
+ 
 
 
     </body>
