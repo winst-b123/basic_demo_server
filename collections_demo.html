@@ -26,10 +26,10 @@ function show_position (position)
     target.appendChild(document.createTextNode(position_text));
     // Create request object 
     var parameters = {};
-    parameters["latitude"] = position.coords.latitude;
-    parameters["longitude"] = position.coords.longitude; 
+    parameters["latitude"] = "\"" + position.coords.latitude + "\"";
+    parameters["longitude"] = "\"" + position.coords.longitude + "\"";
     parameters["channel"] = 'geoloc';
-    parameters["session"] = sessionId;
+    parameters["session"] = "\"" + sessionId + "\"";
       var contentToTeneo = {'text': 'coordinates', "parameters": parameters, 'channel':'geoloc'};
        console.log("Content to Teneo: " + JSON.stringify(contentToTeneo));
       var request = new Request('https://afs-customer-services-sms.herokuapp.com/', 
