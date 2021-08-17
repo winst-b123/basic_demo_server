@@ -10,14 +10,14 @@
   { 
    var x = document.getElementById("demo");
    let text = 'not set';
-   var display = function (position) 
+   let display = function (position) 
    {
      // x.innerHTML = "Latitude: " + position.coords.latitude +
      // "<br>Longitude: " + position.coords.longitude;
       text  = "Latitude = " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
       console.log(text);
     };
-   var getter = function () 
+   let getter = function () 
    {
      if (navigator.geolocation) 
      {
