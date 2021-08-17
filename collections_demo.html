@@ -26,11 +26,12 @@ function show_position (position)
     target.appendChild(document.createTextNode(position_text));
     // Create request object 
         
-       /* var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
+        var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
          { method: 'POST', 
-           body: {'text': 'coordinates', 'latitude': position.coords.latitude, 'longitude': position.coords.longitude}, 
-           headers: new Headers({ 'Content-Type': 'application/json', 'cookie': 'JESSIONID='+findGetParameter('session_id')+ }) 
-         });*/
+           body: {'text': 'coordinates', 'latitude': '$position.coords.latitude', 'longitude': '$position.coords.longitude'}, 
+           headers: new Headers({ 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' }) 
+         });
+       console.log(request);
        // Now use it! 
 
       /*fetch(request) 
