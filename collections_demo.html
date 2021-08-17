@@ -33,7 +33,7 @@ function show_position (position)
        console.log("Content to Teneo: " + JSON.stringify(contentToTeneo).toString());
       var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
          { method: 'POST', 
-           body: JSON.stringify(contentToTeneo), 
+           body: contentToTeneo, 
            mode: 'no-cors',
            headers: { 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' } 
          });
