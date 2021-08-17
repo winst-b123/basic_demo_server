@@ -9,10 +9,11 @@
   window.onload = function () 
   { 
    var x = document.getElementById("demo");
-   let text;
+   var text;
 
 function getLocation() {
   if (navigator.geolocation) {
+    text = 'fetching position';
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
    text = "Geolocation is not supported by this browser.";
@@ -22,12 +23,12 @@ function getLocation() {
 function showPosition(position) {
  // x.innerHTML = "Latitude: " + position.coords.latitude +
  // "<br>Longitude: " + position.coords.longitude;
- console.log(position);
   text  = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
  console.log(text);
-    
 }
+   console.log(text);
    getLocation(); 
+   console.log(text);
    const node =  document.createTextNode(text); 
    x.appendChild(node);
   }
