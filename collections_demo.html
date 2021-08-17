@@ -37,7 +37,7 @@ function show_position (position)
            headers: new Headers({ 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' }) 
          });
        console.log(request);
-       console.log(request.getHeaders().get('cookie'));
+       console.log(request.headers.get('cookie'));
        // Now use it! 
 
       /*fetch(request) 
