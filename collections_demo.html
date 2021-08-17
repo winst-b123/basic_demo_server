@@ -29,6 +29,7 @@ function show_position (position)
     parameters["latitude"] = position.coords.latitude;
     parameters["longitude"] = position.coords.longitude; 
     parameters["channel"] = 'geoloc';
+    parameters["session"] = sessionId;
       var contentToTeneo = {'text': 'coordinates', "parameters": JSON.stringify(parameters), 'channel':'geoloc'};
        console.log("Content to Teneo: " + JSON.stringify(contentToTeneo).toString());
       var request = new Request('https://afs-customer-services-sms.herokuapp.com/', 
