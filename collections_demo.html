@@ -31,7 +31,7 @@ function show_position (position)
     parameters["channel"] = 'geoloc';
       var contentToTeneo = {'text': 'coordinates', "parameters": JSON.stringify(parameters), 'channel':'geoloc'};
        console.log("Content to Teneo: " + JSON.stringify(contentToTeneo).toString());
-      var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
+      var request = new Request('https://afs-customer-services-sms.herokuapp.com/', 
          { method: 'POST', 
            body: contentToTeneo, 
            mode: 'no-cors',
