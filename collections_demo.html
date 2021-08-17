@@ -34,7 +34,8 @@ function show_position (position)
        console.log("Content to Teneo: " + JSON.stringify(contentToTeneo));
       var request = new Request('https://afs-customer-services-sms.herokuapp.com/', 
          { method: 'POST', 
-           body: JSON.stringify(contentToTeneo), 
+           //body: JSON.stringify(contentToTeneo), 
+           body: contentToTeneo, 
            mode: 'no-cors',
            headers: { 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' } 
          });
