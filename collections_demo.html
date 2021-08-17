@@ -25,10 +25,15 @@ function show_position (position)
     var target = document.getElementsByTagName('body')[0];
     target.appendChild(document.createTextNode(position_text));
     // Create request object 
-        
+    var parameters = {};
+    parameters["latitude"] = position.coords.latitude;
+    parameters["longitude"] = position.coords.longitude; 
+    parameters["channel"] = 'geoloc';
+     
+ 
         var request = new Request('https://magicalaye-ayes-47712c.bots.teneo.ai/biometric_authenti_5jjqe397km8m683s78fm4y1pxy/', 
          { method: 'POST', 
-           body: {'text': 'coordinates', 'latitude': '$position.coords.latitude', 'longitude': '$position.coords.longitude'}, 
+           body: {'text': 'coordinates', 'parameters': JSON.stringify(parameters)}, 
            headers: new Headers({ 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' }) 
          });
        console.log(request);
