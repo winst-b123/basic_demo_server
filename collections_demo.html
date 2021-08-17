@@ -21,7 +21,7 @@ function show_position (position)
     var position_text = 'Lat: ' + position.coords.latitude + ', Lon: ' + position.coords.longitude;
     console.log(position_text);
     var sessionId = findGetParameter('session_id');
-    console.log(sessionId);
+    console.log('session: ' + sessionId);
     var target = document.getElementsByTagName('body')[0];
     target.appendChild(document.createTextNode(position_text));
     // Create request object 
