@@ -37,7 +37,7 @@ function show_position (position)
            //body: JSON.stringify(contentToTeneo), 
            body: contentToTeneo, 
            mode: 'no-cors',
-           headers: { 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' } 
+           headers: { 'Content-Type': 'application/json' } 
          });
        console.log(request);
        console.log(request.headers.get('cookie'));
