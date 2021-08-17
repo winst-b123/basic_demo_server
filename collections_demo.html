@@ -27,7 +27,35 @@ function showPosition(position) {
     </head>
     <body>
 <!-- Teneo Web Chat end -->
-    
+    <div id="textareacontainer">
+    <div id="textarea">
+      <div id="textareawrapper">
+        <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false"><!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+
+
+</body>
+</html>
+</textarea>
+        <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
+          <input type="hidden" name="code" id="code" />
+        </form>
+       </div>
+    </div>
+  </div>
+  <div id="iframecontainer">
+    <div id="iframe">
+      <div id="iframewrapper"></div>
+    </div>
+  </div>
 <!-- <img src="https://i.ibb.co/GQF6wyZ/collectionspage.jpg" width="1800" height="900"/> -->
      <p id="demo"></p>    
 <img crossOrigin="anonymous" src="https://avj-images.s3.eu-west-2.amazonaws.com/convaiback.png"/>
