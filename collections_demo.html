@@ -10,24 +10,28 @@
   { 
    var x = document.getElementById("demo");
    var text;
-
-function getLocation() {
-  if (navigator.geolocation) {
-    text = 'fetching position';
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-   text = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
- // x.innerHTML = "Latitude: " + position.coords.latitude +
- // "<br>Longitude: " + position.coords.longitude;
-  text  = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
- console.log(text);
-}
+   var display = function (position) 
+   {
+     // x.innerHTML = "Latitude: " + position.coords.latitude +
+     // "<br>Longitude: " + position.coords.longitude;
+      text  = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+      console.log(text);
+    };
+   var getter = function () 
+   {
+     if (navigator.geolocation) 
+     {
+       text = 'fetching position';
+       navigator.geolocation.getCurrentPosition(display);
+     }
+     else 
+     {
+       text = "Geolocation is not supported by this browser.";
+     }
+   };
+   
    console.log(text);
-   getLocation(); 
+   getter(); 
    console.log(text);
    const node =  document.createTextNode(text); 
    x.appendChild(node);
