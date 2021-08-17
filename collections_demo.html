@@ -31,10 +31,10 @@ function show_position (position)
     parameters["channel"] = 'geoloc';
     parameters["session"] = sessionId;
       var contentToTeneo = {'text': 'coordinates', "parameters": JSON.stringify(parameters), 'channel':'geoloc'};
-       console.log("Content to Teneo: " + JSON.stringify(contentToTeneo).toString());
+       console.log("Content to Teneo: " + JSON.stringify(contentToTeneo));
       var request = new Request('https://afs-customer-services-sms.herokuapp.com/', 
          { method: 'POST', 
-           body: contentToTeneo, 
+           body: JSON.stringify(contentToTeneo), 
            mode: 'no-cors',
            headers: { 'Content-Type': 'application/json', 'cookie': 'JESSIONID=${sessionId}' } 
          });
