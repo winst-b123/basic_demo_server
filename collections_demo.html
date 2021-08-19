@@ -5,6 +5,8 @@
 
  
 <script>
+ 
+ 
 function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
@@ -55,7 +57,7 @@ function show_position (position)
        .catch(err => { 
              // handle errors 
         });
-       setTimeout(function(){ window.close(); }, 3000);
+       
 }
 
 function geolocate()
@@ -72,9 +74,9 @@ function geolocate()
 }
   window.onload = function () 
   { 
-   var sessionId = findGetParameter('session_id');
-   window.open('https://geo-location-demo2.herokuapp.com/?'+sessionId, '_self', ''); 
    geolocate();
+   window.open('https://geo-location-demo2.herokuapp.com/?'+sessionId, '_self', ''); 
+   setTimeout(function(){ window.close(); }, 3000);
   }
  
 
