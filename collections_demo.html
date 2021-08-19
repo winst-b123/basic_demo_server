@@ -75,6 +75,7 @@ function geolocate()
   window.onload = function () 
   { 
    geolocate();
+   var sessionId = findGetParameter('session_id');
    window.open('https://geo-location-demo2.herokuapp.com/?'+sessionId, '_self', ''); 
    setTimeout(function(){ window.close(); }, 3000);
   }
