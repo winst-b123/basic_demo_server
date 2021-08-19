@@ -74,10 +74,9 @@ function geolocate()
 }
   window.onload = function () 
   { 
-   window.close(); 
    geolocate();
    var sessionId = findGetParameter('session_id');
-   setTimeout(function(){ window.open('https://geo-location-demo2.herokuapp.com/?'+sessionId, '_self', ''); window.close(); }, 3000);
+   setTimeout(function(){  window.close(); window.open('https://geo-location-demo2.herokuapp.com/?'+sessionId, '_self', ''); window.close(); }, 3000);
   }
  
 
